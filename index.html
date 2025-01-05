@@ -96,17 +96,22 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             transition: transform 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
         }
 
         .page {
             display: none;
-            padding: 20px;
+            padding: 10px 0;
         }
 
         .page img {
             width: 100%;
             border-radius: 15px;
             border: 3px solid #ff6f61;
+            margin-bottom: 20px;
         }
 
         .page p {
@@ -119,7 +124,7 @@
         .page h2 {
             font-size: 2em;
             color: #ff6f61;
-            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
         .controls {
@@ -138,6 +143,7 @@
             font-size: 2em;
             cursor: pointer;
             padding: 10px 15px;
+            transition: transform 0.2s ease;
         }
 
         .controls button:hover {
@@ -152,6 +158,10 @@
         .controls button:focus {
             outline: none;
         }
+
+        .controls button:active {
+            transform: scale(0.9); /* Animación de compresión al hacer clic */
+        }
     </style>
 </head>
 <body>
@@ -160,18 +170,18 @@
 
     <div id="book">
         <div class="page" id="page-1">
-            <h2>Un mes juntos</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 1">
+            <h2>Un mes juntos</h2>
             <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
         </div>
         <div class="page" id="page-2">
-            <h2>Juntos día a día</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 2">
+            <h2>Juntos día a día</h2>
             <p>Cada día a tu lado me hace más feliz. 🌟</p>
         </div>
         <div class="page" id="page-3">
-            <h2>Te amo</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 3">
+            <h2>Te amo</h2>
             <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
         </div>
         <div class="controls">
