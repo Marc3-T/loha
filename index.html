@@ -116,6 +116,12 @@
             font-style: italic;
         }
 
+        .page h2 {
+            font-size: 2em;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
         .controls {
             display: flex;
             justify-content: space-between;
@@ -126,17 +132,25 @@
         }
 
         .controls button {
-            background: #ffffff;
-            color: #ff6f61;
+            background: transparent;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 10px;
+            font-size: 2em;
             cursor: pointer;
+            padding: 10px 15px;
         }
 
         .controls button:hover {
             background: #ffe5e0;
+        }
+
+        /* Triángulos para los botones */
+        .controls .prev {
+            transform: rotate(180deg); /* Triángulo hacia atrás */
+        }
+
+        .controls button:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -146,20 +160,23 @@
 
     <div id="book">
         <div class="page" id="page-1">
+            <h2>Un mes juntos</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 1">
             <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
         </div>
         <div class="page" id="page-2">
+            <h2>Juntos día a día</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 2">
             <p>Cada día a tu lado me hace más feliz. 🌟</p>
         </div>
         <div class="page" id="page-3">
+            <h2>Te amo</h2>
             <img src="https://via.placeholder.com/400x250" alt="Foto 3">
             <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
         </div>
         <div class="controls">
-            <button id="prev-btn" onclick="prevPage()" disabled>Anterior</button>
-            <button id="next-btn" onclick="nextPage()">Siguiente</button>
+            <button class="prev" id="prev-btn" onclick="prevPage()" disabled>&#9654;</button>
+            <button class="next" id="next-btn" onclick="nextPage()">&#9654;</button>
         </div>
     </div>
 
