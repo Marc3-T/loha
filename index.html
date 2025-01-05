@@ -134,35 +134,46 @@
             border-top: 2px solid #ffffff;
         }
 
-        /* Estilos para los botones con flechas */
+        /* Estilos para los botones con triángulos */
         .controls button {
             background: #ffffff;
             color: #ff6f61;
             border: none;
-            padding: 10px 20px;
+            padding: 15px;
             font-size: 1.5em;
-            border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 50px;
             height: 50px;
+            position: relative;
         }
 
         .controls button:hover {
             background: #ffe5e0;
         }
 
-        /* Flechas */
-        .controls .prev:before {
-            content: "←";
-            font-size: 2em;
+        /* Triángulos de los botones */
+        .controls .prev {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid #ff6f61;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .controls .next:before {
-            content: "→";
-            font-size: 2em;
+        .controls .next {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid #ff6f61;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .page-indicator {
