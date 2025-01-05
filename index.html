@@ -6,6 +6,7 @@
     <title>Un mes juntos ❤️</title>
     <!-- Añadir la fuente desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
     <style>
         body {
             font-family: 'Dancing Script', cursive; /* Fuente bonita */
@@ -144,6 +145,9 @@
             height: 40px;
             border-radius: 10px;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .controls button:hover {
@@ -155,17 +159,17 @@
             color: #ffffff;
         }
 
-        /* Estilo para las flechas */
-        .controls button:before {
-            font-family: Arial, sans-serif;
+        /* Triángulos como botones */
+        .controls .prev {
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid #ff6f61;
         }
 
-        .controls .prev:before {
-            content: '\2190'; /* Flecha hacia la izquierda */
-        }
-
-        .controls .next:before {
-            content: '\2192'; /* Flecha hacia la derecha */
+        .controls .next {
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid #ff6f61;
         }
     </style>
 </head>
