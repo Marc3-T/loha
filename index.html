@@ -95,19 +95,17 @@
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            transition: transform 0.5s ease-in-out;
             position: relative;
-            height: 90%;
-        }
-
-        .pages-container {
-            display: flex;
-            transition: transform 0.5s ease;
         }
 
         .page {
-            width: 100%;
-            padding: 20px;
             display: none;
+            padding: 20px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
         }
 
         .page img {
@@ -145,6 +143,37 @@
         .controls button:hover {
             background: #ffe5e0;
         }
+
+        /* Animación de transición entre páginas */
+        .page-in {
+            animation: pageIn 0.5s ease-out;
+        }
+
+        .page-out {
+            animation: pageOut 0.5s ease-in;
+        }
+
+        @keyframes pageIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pageOut {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -163,19 +192,17 @@
     </div>
 
     <div id="book">
-        <div class="pages-container" id="pages-container">
-            <div class="page" id="page-1">
-                <img src="https://via.placeholder.com/400x250" alt="Foto 1">
-                <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
-            </div>
-            <div class="page" id="page-2">
-                <img src="https://via.placeholder.com/400x250" alt="Foto 2">
-                <p>Cada día a tu lado me hace más feliz. 🌟</p>
-            </div>
-            <div class="page" id="page-3">
-                <img src="https://via.placeholder.com/400x250" alt="Foto 3">
-                <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
-            </div>
+        <div class="page" id="page-1">
+            <img src="https://via.placeholder.com/400x250" alt="Foto 1">
+            <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
+        </div>
+        <div class="page" id="page-2">
+            <img src="https://via.placeholder.com/400x250" alt="Foto 2">
+            <p>Cada día a tu lado me hace más feliz. 🌟</p>
+        </div>
+        <div class="page" id="page-3">
+            <img src="https://via.placeholder.com/400x250" alt="Foto 3">
+            <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
         </div>
         <div class="controls">
             <button id="prev-btn" onclick="prevPage()" disabled>Anterior</button>
@@ -188,24 +215,34 @@
         const totalPages = 3;
 
         function showPage(page) {
-            const pagesContainer = document.getElementById('pages-container');
-            pagesContainer.style.transform = `translateX(-${(page - 1) * 100}%)`;
+            const currentPageElement = document.getElementById(`page-${currentPage}`);
+            const nextPageElement = document.getElementById(`page-${page}`);
 
+            currentPageElement.classList.add('page-out');
+            nextPageElement.classList.add('page-in');
+
+            currentPageElement.style.display = 'none';
+            nextPageElement.style.display = 'block';
+
+            currentPage = page;
             document.getElementById('prev-btn').disabled = page === 1;
             document.getElementById('next-btn').disabled = page === totalPages;
+
+            setTimeout(() => {
+                currentPageElement.classList.remove('page-out');
+                nextPageElement.classList.remove('page-in');
+            }, 500); // Tiempo de duración de la animación
         }
 
         function nextPage() {
             if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
+                showPage(currentPage + 1);
             }
         }
 
         function prevPage() {
             if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
+                showPage(currentPage - 1);
             }
         }
 
