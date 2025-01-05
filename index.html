@@ -98,6 +98,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             transition: transform 0.5s;
+            margin-bottom: 20px;
         }
 
         .page {
@@ -159,28 +160,29 @@
             color: #ffffff;
         }
 
-        /* Mini ventana para el contador (ajustada a tamaño más pequeño) */
-        #timer-container {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
+        /* Estilo para la ventana del contador */
+        #counter-container {
             width: 90%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        #timer-container h2 {
-            font-size: 1.4em;
+            background: #fff4f4;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-top: 30px;
             color: #ff6f61;
-            margin-bottom: 10px;
         }
 
-        #timer {
-            font-size: 1.2em;
+        .counter-text {
+            font-size: 2em;
             font-weight: bold;
-            color: #555;
+            color: #ff6f61;
+        }
+
+        .time {
+            font-size: 3em;
+            color: #ff6f61;
+            margin-top: 10px;
         }
 
     </style>
@@ -212,10 +214,10 @@
         </div>
     </div>
 
-    <!-- Mini ventana con el contador de tiempo desde que somos novios -->
-    <div id="timer-container">
-        <h2>Tiempo desde que somos novios</h2>
-        <div id="timer">Calculando...</div>
+    <!-- Contador de tiempo desde que somos novios -->
+    <div id="counter-container">
+        <div class="counter-text">Tiempo desde que somos novios:</div>
+        <div class="time" id="time-counter">Cargando...</div>
     </div>
 
     <script>
@@ -269,27 +271,25 @@
 
         showPage(currentPage);
 
-        // Contador de tiempo desde el 7 de diciembre de 2024
-        const startDate = new Date("December 7, 2024 00:00:00").getTime();
+        // Contador de tiempo desde que somos novios
+        const startDate = new Date('2024-12-07'); // Fecha de inicio de la relación
 
-        function updateTimer() {
-            const now = new Date().getTime();
-            const timeDifference = now - startDate;
+        function updateTimeCounter() {
+            const currentDate = new Date();
+            const diffTime = currentDate - startDate; // Diferencia en milisegundos
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
+            const months = Math.floor(diffDays / 30); // Calcular los meses
+            const days = diffDays % 30; // Días restantes
 
-            // Calcular los días, horas, minutos y segundos
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            // Mostrar el resultado en el contenedor del timer
-            document.getElementById("timer").textContent = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+            document.getElementById('time-counter').textContent = `${months} meses y ${days} días`;
         }
 
-        // Actualizar el contador cada segundo
-        setInterval(updateTimer, 1000);
+        setInterval(updateTimeCounter, 1000); // Actualizar cada segundo
+
+        updateTimeCounter(); // Inicializar contador
     </script>
 </body>
 </html>
+
 
 
