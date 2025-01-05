@@ -98,6 +98,7 @@
             align-items: center;
             background: rgba(255, 255, 255, 0.9);
             transition: opacity 0.5s, visibility 0.5s;
+            z-index: 2; /* Adjusted to ensure it's above the book */
         }
 
         .screen.hidden {
@@ -208,7 +209,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1;
+            z-index: 1; /* Ensures it's below the gift screen */
         }
 
         #book {
@@ -366,4 +367,3 @@
     </script>
 </body>
 </html>
-
