@@ -34,8 +34,7 @@
             height: 30px;
             background: #ff6f61;
             transform: rotate(45deg);
-            opacity: 0;
-            animation: float 6s linear infinite, moveUp 6s linear infinite;
+            animation: moveUp 6s linear infinite;
         }
 
         .heart:before,
@@ -56,21 +55,6 @@
         .heart:after {
             left: -15px;
             top: 0;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateX(0) rotate(45deg);
-                opacity: 0;
-            }
-            50% {
-                transform: translateX(10px) rotate(45deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-10px) rotate(45deg);
-                opacity: 0;
-            }
         }
 
         @keyframes moveUp {
@@ -96,7 +80,8 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             position: relative;
-            height: 100%;
+            height: 80%;
+            max-height: 500px;
         }
 
         .page {
@@ -107,7 +92,6 @@
             left: 0;
             width: 100%;
             transition: opacity 0.5s ease-in-out;
-            opacity: 0;
         }
 
         .page img {
@@ -191,22 +175,19 @@
             const currentPageElement = document.getElementById(`page-${currentPage}`);
             const nextPageElement = document.getElementById(`page-${page}`);
 
-            // Desaparecer la página actual con animación
-            currentPageElement.style.opacity = 0;
+            // Ocultar la página actual
+            currentPageElement.style.display = 'none';
 
-            // Aparecer la página siguiente con animación
+            // Mostrar la siguiente página
             nextPageElement.style.display = 'block';
             nextPageElement.style.opacity = 1;
 
-            // Cambiar la página actual
+            // Actualizar la página actual
             currentPage = page;
+
+            // Deshabilitar o habilitar los botones de navegación
             document.getElementById('prev-btn').disabled = page === 1;
             document.getElementById('next-btn').disabled = page === totalPages;
-
-            // Ocultar la página anterior después de la animación
-            setTimeout(() => {
-                currentPageElement.style.display = 'none';
-            }, 500);
         }
 
         // Función para pasar a la siguiente página
