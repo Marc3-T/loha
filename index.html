@@ -96,14 +96,18 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             position: relative;
+            height: 90%;
+        }
+
+        .pages-container {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .page {
-            display: none;
-            padding: 20px;
-            position: absolute;
             width: 100%;
-            transition: transform 0.5s ease;
+            padding: 20px;
+            display: none;
         }
 
         .page img {
@@ -159,17 +163,19 @@
     </div>
 
     <div id="book">
-        <div class="page" id="page-1">
-            <img src="https://via.placeholder.com/400x250" alt="Foto 1">
-            <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
-        </div>
-        <div class="page" id="page-2">
-            <img src="https://via.placeholder.com/400x250" alt="Foto 2">
-            <p>Cada día a tu lado me hace más feliz. 🌟</p>
-        </div>
-        <div class="page" id="page-3">
-            <img src="https://via.placeholder.com/400x250" alt="Foto 3">
-            <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
+        <div class="pages-container" id="pages-container">
+            <div class="page" id="page-1">
+                <img src="https://via.placeholder.com/400x250" alt="Foto 1">
+                <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
+            </div>
+            <div class="page" id="page-2">
+                <img src="https://via.placeholder.com/400x250" alt="Foto 2">
+                <p>Cada día a tu lado me hace más feliz. 🌟</p>
+            </div>
+            <div class="page" id="page-3">
+                <img src="https://via.placeholder.com/400x250" alt="Foto 3">
+                <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
+            </div>
         </div>
         <div class="controls">
             <button id="prev-btn" onclick="prevPage()" disabled>Anterior</button>
@@ -182,14 +188,11 @@
         const totalPages = 3;
 
         function showPage(page) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach((page, index) => {
-                page.style.transform = (index + 1 === currentPage) ? 'translateX(0)' : (index + 1 < currentPage ? 'translateX(-100%)' : 'translateX(100%)');
-                page.style.display = 'block';
-            });
+            const pagesContainer = document.getElementById('pages-container');
+            pagesContainer.style.transform = `translateX(-${(page - 1) * 100}%)`;
 
-            document.getElementById('prev-btn').disabled = currentPage === 1;
-            document.getElementById('next-btn').disabled = currentPage === totalPages;
+            document.getElementById('prev-btn').disabled = page === 1;
+            document.getElementById('next-btn').disabled = page === totalPages;
         }
 
         function nextPage() {
