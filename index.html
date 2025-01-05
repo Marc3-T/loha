@@ -134,51 +134,38 @@
             border-top: 2px solid #ffffff;
         }
 
-        /* Estilos para los botones con triángulos */
         .controls button {
             background: #ffffff;
             color: #ff6f61;
             border: none;
-            padding: 15px;
+            padding: 10px;
             font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             cursor: pointer;
-            width: 50px;
-            height: 50px;
-            position: relative;
         }
 
         .controls button:hover {
             background: #ffe5e0;
         }
 
-        /* Triángulos de los botones */
-        .controls .prev {
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-bottom: 30px solid #ff6f61;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .controls .next {
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 30px solid #ff6f61;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
         .page-indicator {
             font-size: 1.2em;
             color: #ffffff;
+        }
+
+        /* Estilo para las flechas */
+        .controls button:before {
+            font-family: Arial, sans-serif;
+        }
+
+        .controls .prev:before {
+            content: '\2190'; /* Flecha hacia la izquierda */
+        }
+
+        .controls .next:before {
+            content: '\2192'; /* Flecha hacia la derecha */
         }
     </style>
 </head>
