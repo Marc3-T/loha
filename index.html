@@ -95,35 +95,31 @@
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 90vh;
+            transition: transform 0.5s;
         }
 
         .page {
             display: none;
-            padding: 15px; /* Ajustado para reducir el espacio */
+            padding: 20px;
         }
 
         .page img {
             width: 100%;
             border-radius: 15px;
             border: 3px solid #ff6f61;
-            margin-bottom: 10px; /* Espacio reducido entre imagen y título */
         }
 
         .page p {
-            margin: 5px 0 15px; /* Reducido el margen entre texto y el borde inferior */
+            margin: 10px 0 0;
             font-size: 1.2em;
             color: #555;
             font-style: italic;
         }
 
-        .page-title {
-            font-size: 1.5em;
+        .title {
+            font-size: 1.4em;
             font-weight: bold;
-            margin-bottom: 10px; /* Espacio reducido entre título y texto */
+            margin-top: 15px;
             color: #ff6f61;
         }
 
@@ -150,10 +146,9 @@
             background: #ffe5e0;
         }
 
-        .page-counter {
+        .page-indicator {
             font-size: 1.2em;
-            color: #fff;
-            font-weight: bold;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -164,22 +159,22 @@
     <div id="book">
         <div class="page" id="page-1">
             <img src="https://via.placeholder.com/400x250" alt="Foto 1">
-            <div class="page-title">Nuestro Primer Mes</div>
             <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
+            <div class="title">Nuestro primer mes</div>
         </div>
         <div class="page" id="page-2">
             <img src="https://via.placeholder.com/400x250" alt="Foto 2">
-            <div class="page-title">Cada Día Más Cerca</div>
             <p>Cada día a tu lado me hace más feliz. 🌟</p>
+            <div class="title">Cada día es especial</div>
         </div>
         <div class="page" id="page-3">
             <img src="https://via.placeholder.com/400x250" alt="Foto 3">
-            <div class="page-title">Juntos para Siempre</div>
             <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
+            <div class="title">Lo que nos espera</div>
         </div>
         <div class="controls">
             <button id="prev-btn" onclick="prevPage()" disabled>Anterior</button>
-            <div class="page-counter" id="page-counter">1/3</div>
+            <span class="page-indicator" id="page-indicator">1/3</span>
             <button id="next-btn" onclick="nextPage()">Siguiente</button>
         </div>
     </div>
@@ -216,7 +211,7 @@
             document.getElementById(`page-${page}`).style.display = 'block';
             document.getElementById('prev-btn').disabled = page === 1;
             document.getElementById('next-btn').disabled = page === totalPages;
-            document.getElementById('page-counter').textContent = `${page}/${totalPages}`;
+            document.getElementById('page-indicator').textContent = `${page}/${totalPages}`;
         }
 
         function nextPage() {
