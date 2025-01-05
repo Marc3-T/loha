@@ -119,9 +119,9 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .gift-box {
-            width: 100px;
-            height: 100px;
+        .gift-image-container {
+            width: 150px;
+            height: 150px;
             background: #ff6f61;
             position: relative;
             border-radius: 10px;
@@ -129,30 +129,16 @@
             animation: shake 1.5s ease-in-out infinite;
         }
 
-        .gift-box:before,
-        .gift-box:after {
-            content: '';
-            position: absolute;
-            background: #ffffff;
-        }
-
-        .gift-box:before {
-            width: 20px;
-            height: 100%;
-            left: 40px;
-            top: 0;
-        }
-
-        .gift-box:after {
+        .gift-image-container img {
             width: 100%;
-            height: 20px;
-            left: 0;
-            top: 40px;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
         }
 
         .gift-lid {
             position: absolute;
-            width: 100px;
+            width: 150px;
             height: 20px;
             background: #ffffff;
             border-radius: 10px 10px 0 0;
@@ -286,8 +272,9 @@
 
     <div id="gift-screen" class="screen">
         <div class="gift-screen">
-            <div class="gift-box">
-                <div class="gift-lid"></div>
+            <div class="gift-image-container">
+                <img src="regalo.jpg" alt="Imagen de Regalo">
+                <!-- Replace the src with your own image URL -->
             </div>
             <div class="gift-message">Para Loha de Marce ❤️</div>
             <button class="open-button" onclick="openBook()">Abrir</button>
@@ -367,3 +354,4 @@
     </script>
 </body>
 </html>
+
