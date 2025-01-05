@@ -160,29 +160,39 @@
             color: #ffffff;
         }
 
-        /* Estilo para la ventana del contador */
+        /* Estilo para la ventana del contador como reloj */
         #counter-container {
             width: 90%;
             max-width: 400px;
             text-align: center;
-            background: #fff4f4;
+            background: #ffffffdd;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             padding: 20px;
             margin-top: 30px;
             color: #ff6f61;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .counter-text {
-            font-size: 2em;
+            font-size: 1.6em;
             font-weight: bold;
             color: #ff6f61;
         }
 
         .time {
-            font-size: 3em;
+            font-size: 2.5em;
             color: #ff6f61;
             margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .time span {
+            font-size: 3em;
+            color: #ff6f61;
         }
 
     </style>
@@ -214,7 +224,7 @@
         </div>
     </div>
 
-    <!-- Contador de tiempo desde que somos novios -->
+    <!-- Contador de tiempo desde que somos novios como reloj -->
     <div id="counter-container">
         <div class="counter-text">Tiempo desde que somos novios:</div>
         <div class="time" id="time-counter">Cargando...</div>
@@ -290,6 +300,7 @@
     </script>
 </body>
 </html>
+
 
 
 
