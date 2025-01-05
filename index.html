@@ -96,6 +96,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             position: relative;
+            height: 100%;
         }
 
         .page {
@@ -105,7 +106,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
         }
 
         .page img {
@@ -144,16 +146,6 @@
             background: #ffe5e0;
         }
 
-        /* Animación de transición entre páginas */
-        .page-in {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .page-out {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
     </style>
 </head>
 <body>
@@ -194,45 +186,44 @@
         let currentPage = 1;
         const totalPages = 3;
 
+        // Mostrar la página inicial
         function showPage(page) {
             const currentPageElement = document.getElementById(`page-${currentPage}`);
             const nextPageElement = document.getElementById(`page-${page}`);
 
-            // Hacer que la página actual salga de la vista
-            currentPageElement.classList.add('page-out');
-            currentPageElement.classList.remove('page-in');
-            
-            // Mostrar la página siguiente con animación
-            nextPageElement.classList.add('page-in');
-            nextPageElement.classList.remove('page-out');
+            // Desaparecer la página actual con animación
+            currentPageElement.style.opacity = 0;
 
-            // Cambiar la visibilidad de las páginas
-            currentPageElement.style.display = 'none';
+            // Aparecer la página siguiente con animación
             nextPageElement.style.display = 'block';
+            nextPageElement.style.opacity = 1;
 
+            // Cambiar la página actual
             currentPage = page;
             document.getElementById('prev-btn').disabled = page === 1;
             document.getElementById('next-btn').disabled = page === totalPages;
 
-            // Reiniciar las clases de animación después de la transición
+            // Ocultar la página anterior después de la animación
             setTimeout(() => {
-                currentPageElement.classList.remove('page-out');
-                nextPageElement.classList.remove('page-in');
-            }, 500); // Tiempo de duración de la animación
+                currentPageElement.style.display = 'none';
+            }, 500);
         }
 
+        // Función para pasar a la siguiente página
         function nextPage() {
             if (currentPage < totalPages) {
                 showPage(currentPage + 1);
             }
         }
 
+        // Función para volver a la página anterior
         function prevPage() {
             if (currentPage > 1) {
                 showPage(currentPage - 1);
             }
         }
 
+        // Inicializar la primera página
         showPage(currentPage);
     </script>
 </body>
