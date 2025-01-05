@@ -19,7 +19,8 @@
             align-items: center;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
+            margin: 10px 0;
         }
         p {
             font-size: 1.2em;
@@ -29,10 +30,13 @@
             background: #ff6f61;
             border: none;
             color: white;
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 15px 30px;
+            font-size: 1.2em;
             border-radius: 20px;
             cursor: pointer;
+            margin-top: 20px;
+            width: 90%; /* Asegura que el botón sea cómodo en pantallas pequeñas */
+            max-width: 300px; /* Límite para pantallas grandes */
         }
         button:hover {
             background: #ff4c4c;
@@ -40,7 +44,21 @@
         .hidden {
             display: none;
         }
+        /* Diseño responsivo para pantallas pequeñas */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1em;
+            }
+            button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
     </style>
+    
 </head>
 <body>
     <h1>❤️ Para mi querida Loha ❤️</h1>
