@@ -15,6 +15,7 @@
             height: 100vh;
             background: linear-gradient(120deg, #ff758c, #ff7eb3, #fad0c4);
             overflow: hidden;
+            position: relative;
         }
 
         /* Fondo con corazones animados */
@@ -34,7 +35,7 @@
             height: 30px;
             background: #ff6f61;
             transform: rotate(45deg);
-            opacity: 0; /* Inicialmente oculto */
+            opacity: 0;
             animation: float 6s linear infinite, moveUp 6s linear infinite;
         }
 
@@ -143,12 +144,26 @@
 <body>
     <!-- Corazones animados en el fondo -->
     <div class="background">
-        <!-- Generamos varios corazones con posiciones iniciales aleatorias -->
-        <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="heart" style="left: 30%; animation-delay: 1s;"></div>
-        <div class="heart" style="left: 50%; animation-delay: 2s;"></div>
-        <div class="heart" style="left: 70%; animation-delay: 3s;"></div>
-        <div class="heart" style="left: 90%; animation-delay: 4s;"></div>
+        <!-- Generamos varios corazones en líneas, ajustando la posición y el retraso de la animación -->
+        <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 15%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 35%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 45%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 55%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 65%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 75%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 85%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 95%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 5%; top: 30%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 15%; top: 30%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 25%; top: 30%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 35%; top: 30%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 45%; top: 30%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 55%; top: 30%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 65%; top: 30%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 75%; top: 30%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 85%; top: 30%; animation-delay: 3s;"></div>
     </div>
 
     <div id="book">
