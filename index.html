@@ -164,27 +164,28 @@
     </div>
 
     <script>
-        // Generamos corazones de manera aleatoria
-        function generateRandomHearts() {
-            const heartCount = 20; // Número de corazones
-            const heartsContainer = document.getElementById("hearts-container");
+        // Generar corazones de manera aleatoria
+        function generateRandomHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
 
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement("div");
-                heart.classList.add("heart");
+            // Asignamos una posición aleatoria
+            const leftPosition = Math.random() * 100; // Valor entre 0 y 100
+            const animationDelay = Math.random() * 5; // Retraso de animación aleatorio entre 0s y 5s
+            heart.style.left = `${leftPosition}%`;
+            heart.style.animationDelay = `${animationDelay}s`;
 
-                // Asignamos una posición aleatoria
-                const leftPosition = Math.random() * 100; // Valor entre 0 y 100
-                const animationDelay = Math.random() * 5; // Retraso de animación aleatorio entre 0s y 5s
-                heart.style.left = `${leftPosition}%`;
-                heart.style.animationDelay = `${animationDelay}s`;
+            // Añadimos el corazón al contenedor
+            document.getElementById("hearts-container").appendChild(heart);
 
-                heartsContainer.appendChild(heart);
-            }
+            // Eliminar el corazón después de que termine la animación
+            setTimeout(() => {
+                heart.remove();
+            }, 6000); // 6 segundos, ya que la animación dura 6 segundos
         }
 
-        // Generamos los corazones al cargar la página
-        generateRandomHearts();
+        // Crear corazones indefinidamente con un intervalo
+        setInterval(generateRandomHeart, 500); // Crear un corazón cada 500ms (ajustable)
 
         let currentPage = 1;
         const totalPages = 3;
