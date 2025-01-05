@@ -15,15 +15,6 @@
             height: 100vh;
             background: linear-gradient(120deg, #ff758c, #ff7eb3, #fad0c4);
             overflow: hidden;
-            background-size: 200% 200%;
-            animation: gradientMove 6s ease infinite;
-        }
-
-        /* Animación del fondo */
-        @keyframes gradientMove {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
         }
 
         /* Fondo con corazones animados */
@@ -68,50 +59,58 @@
         }
 
         @keyframes float {
-            0% { transform: translateX(0) rotate(45deg); opacity: 0; }
-            50% { transform: translateX(10px) rotate(45deg); opacity: 1; }
-            100% { transform: translateX(-10px) rotate(45deg); opacity: 0; }
+            0% {
+                transform: translateX(0) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(10px) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-10px) rotate(45deg);
+                opacity: 0;
+            }
         }
 
         @keyframes moveUp {
-            0% { bottom: -10%; opacity: 0; }
-            50% { opacity: 1; }
-            100% { bottom: 110%; opacity: 0; }
+            0% {
+                bottom: -10%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
         }
 
         #book {
             width: 90%;
-            max-width: 420px;
+            max-width: 400px;
             text-align: center;
             background: #ffffffdd;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            padding: 20px;
             transition: transform 0.5s;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Página con sombras sutiles */
         .page {
             display: none;
             padding: 20px;
-            border-radius: 15px;
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.5s ease-in-out;
         }
 
         .page img {
             width: 100%;
             border-radius: 15px;
-            border: 4px solid #ff6f61;
-            margin-bottom: 15px;
+            border: 3px solid #ff6f61;
         }
 
         .page p {
-            margin: 10px 0;
+            margin: 10px 0 0;
             font-size: 1.2em;
             color: #555;
             font-style: italic;
@@ -123,41 +122,30 @@
             align-items: center;
             padding: 15px;
             background: #ff6f61;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
+            border-top: 2px solid #ffffff;
         }
 
         .controls button {
             background: #ffffff;
             color: #ff6f61;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             font-size: 1em;
-            border-radius: 20px;
+            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .controls button:hover {
-            background-color: #ffe5e0;
-            transform: scale(1.05);
-        }
-
-        .controls button:disabled {
-            background: #ff7f7f;
-            color: #fff;
+            background: #ffe5e0;
         }
     </style>
 </head>
 <body>
     <!-- Corazones animados en el fondo -->
     <div class="background">
+        <!-- Generamos múltiples filas de corazones para llenar el fondo -->
+        <!-- Aseguramos que siempre haya varios corazones en pantalla a la vez -->
+        <!-- Primera fila de corazones -->
         <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
         <div class="heart" style="left: 15%; animation-delay: 0.5s;"></div>
         <div class="heart" style="left: 25%; animation-delay: 1s;"></div>
@@ -168,6 +156,32 @@
         <div class="heart" style="left: 75%; animation-delay: 3.5s;"></div>
         <div class="heart" style="left: 85%; animation-delay: 4s;"></div>
         <div class="heart" style="left: 95%; animation-delay: 4.5s;"></div>
+        
+        <!-- Segunda fila de corazones -->
+        <div class="heart" style="left: 5%; bottom: 10%; animation-delay: 0.5s;"></div>
+        <div class="heart" style="left: 15%; bottom: 10%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 25%; bottom: 10%; animation-delay: 1.5s;"></div>
+        <div class="heart" style="left: 35%; bottom: 10%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 45%; bottom: 10%; animation-delay: 2.5s;"></div>
+        <div class="heart" style="left: 55%; bottom: 10%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 65%; bottom: 10%; animation-delay: 3.5s;"></div>
+        <div class="heart" style="left: 75%; bottom: 10%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 85%; bottom: 10%; animation-delay: 4.5s;"></div>
+        <div class="heart" style="left: 95%; bottom: 10%; animation-delay: 5s;"></div>
+        
+        <!-- Tercera fila de corazones -->
+        <div class="heart" style="left: 5%; bottom: 20%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 15%; bottom: 20%; animation-delay: 1.5s;"></div>
+        <div class="heart" style="left: 25%; bottom: 20%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 35%; bottom: 20%; animation-delay: 2.5s;"></div>
+        <div class="heart" style="left: 45%; bottom: 20%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 55%; bottom: 20%; animation-delay: 3.5s;"></div>
+        <div class="heart" style="left: 65%; bottom: 20%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 75%; bottom: 20%; animation-delay: 4.5s;"></div>
+        <div class="heart" style="left: 85%; bottom: 20%; animation-delay: 5s;"></div>
+        <div class="heart" style="left: 95%; bottom: 20%; animation-delay: 5.5s;"></div>
+
+        <!-- Añadir más filas según sea necesario -->
     </div>
 
     <div id="book">
