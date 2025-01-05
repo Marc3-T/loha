@@ -34,7 +34,7 @@
             height: 30px;
             background: #ff6f61;
             transform: rotate(45deg);
-            opacity: 0;
+            opacity: 0; /* Inicialmente oculto */
             animation: float 6s linear infinite, moveUp 6s linear infinite;
         }
 
@@ -143,45 +143,12 @@
 <body>
     <!-- Corazones animados en el fondo -->
     <div class="background">
-        <!-- Generamos múltiples filas de corazones para llenar el fondo -->
-        <!-- Aseguramos que siempre haya varios corazones en pantalla a la vez -->
-        <!-- Primera fila de corazones -->
-        <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
-        <div class="heart" style="left: 15%; animation-delay: 0.5s;"></div>
-        <div class="heart" style="left: 25%; animation-delay: 1s;"></div>
-        <div class="heart" style="left: 35%; animation-delay: 1.5s;"></div>
-        <div class="heart" style="left: 45%; animation-delay: 2s;"></div>
-        <div class="heart" style="left: 55%; animation-delay: 2.5s;"></div>
-        <div class="heart" style="left: 65%; animation-delay: 3s;"></div>
-        <div class="heart" style="left: 75%; animation-delay: 3.5s;"></div>
-        <div class="heart" style="left: 85%; animation-delay: 4s;"></div>
-        <div class="heart" style="left: 95%; animation-delay: 4.5s;"></div>
-        
-        <!-- Segunda fila de corazones -->
-        <div class="heart" style="left: 5%; bottom: 10%; animation-delay: 0.5s;"></div>
-        <div class="heart" style="left: 15%; bottom: 10%; animation-delay: 1s;"></div>
-        <div class="heart" style="left: 25%; bottom: 10%; animation-delay: 1.5s;"></div>
-        <div class="heart" style="left: 35%; bottom: 10%; animation-delay: 2s;"></div>
-        <div class="heart" style="left: 45%; bottom: 10%; animation-delay: 2.5s;"></div>
-        <div class="heart" style="left: 55%; bottom: 10%; animation-delay: 3s;"></div>
-        <div class="heart" style="left: 65%; bottom: 10%; animation-delay: 3.5s;"></div>
-        <div class="heart" style="left: 75%; bottom: 10%; animation-delay: 4s;"></div>
-        <div class="heart" style="left: 85%; bottom: 10%; animation-delay: 4.5s;"></div>
-        <div class="heart" style="left: 95%; bottom: 10%; animation-delay: 5s;"></div>
-        
-        <!-- Tercera fila de corazones -->
-        <div class="heart" style="left: 5%; bottom: 20%; animation-delay: 1s;"></div>
-        <div class="heart" style="left: 15%; bottom: 20%; animation-delay: 1.5s;"></div>
-        <div class="heart" style="left: 25%; bottom: 20%; animation-delay: 2s;"></div>
-        <div class="heart" style="left: 35%; bottom: 20%; animation-delay: 2.5s;"></div>
-        <div class="heart" style="left: 45%; bottom: 20%; animation-delay: 3s;"></div>
-        <div class="heart" style="left: 55%; bottom: 20%; animation-delay: 3.5s;"></div>
-        <div class="heart" style="left: 65%; bottom: 20%; animation-delay: 4s;"></div>
-        <div class="heart" style="left: 75%; bottom: 20%; animation-delay: 4.5s;"></div>
-        <div class="heart" style="left: 85%; bottom: 20%; animation-delay: 5s;"></div>
-        <div class="heart" style="left: 95%; bottom: 20%; animation-delay: 5.5s;"></div>
-
-        <!-- Añadir más filas según sea necesario -->
+        <!-- Generamos varios corazones con posiciones iniciales aleatorias -->
+        <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 30%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 70%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 90%; animation-delay: 4s;"></div>
     </div>
 
     <div id="book">
