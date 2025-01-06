@@ -242,7 +242,7 @@
     <div id="gift-screen" class="screen">
         <div class="gift-screen">
             <div class="gift-image-container">
-                <img src="https://via.placeholder.com/150" alt="Imagen de Regalo">
+                <img src="https://your-image-url.com/your-image.png" alt="Imagen de Regalo">
             </div>
             <div class="gift-message">Para Loha de Marce ❤️</div>
             <button class="open-button" onclick="openBook()">Abrir</button>
@@ -267,9 +267,9 @@
                 <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
             </div>
             <div class="page" id="page-4">
-                <img id="random-image" alt="Imagen aleatoria">
-                <div class="title">Sorpresa</div>
-                <p>¡Cada día contigo es una nueva aventura! ❤️</p>
+                <img id="rotating-image" src="https://via.placeholder.com/400x250" alt="Rotating Foto">
+                <div class="title">Momentos mágicos</div>
+                <p>Cada foto es un recuerdo inolvidable contigo. 💞</p>
             </div>
             <div class="controls">
                 <button id="prev-btn" onclick="prevPage()" disabled>◁</button>
@@ -298,35 +298,12 @@
 
         setInterval(generateRandomHeart, 500);
 
-        const randomImages = [
-            "a1.jpg",
-            "a2.JPG",
-            "a3.JPG",
-            "a4.JPG",
-            "a5.jpg"
-        ];
-        let randomOrder = [...randomImages];
-        let randomIndex = 0;
-
-        function setRandomImage() {
-            if (randomOrder.length === 0) {
-                randomOrder = [...randomImages];
-            }
-            const imgElement = document.getElementById("random-image");
-            imgElement.src = randomOrder.splice(Math.floor(Math.random() * randomOrder.length), 1)[0];
-        }
-
         let currentPage = 1;
         const totalPages = 4;
 
         function showPage(page) {
             document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
             document.getElementById(`page-${page}`).style.display = 'block';
-
-            if (page === 4) {
-                setRandomImage();
-            }
-
             document.getElementById('prev-btn').disabled = page === 1;
             document.getElementById('next-btn').disabled = page === totalPages;
             document.getElementById('page-indicator').textContent = `${page}/${totalPages}`;
@@ -345,6 +322,22 @@
                 showPage(currentPage);
             }
         }
+
+        const rotatingImages = [
+            "a1.jpg",
+            "a2.JPG",
+            "a3.JPG",
+            "a4.JPG",
+            "a5.jpg"
+        ];
+        let rotatingIndex = 0;
+
+        function rotateImage() {
+            rotatingIndex = (rotatingIndex + 1) % rotatingImages.length;
+            document.getElementById('rotating-image').src = rotatingImages[rotatingIndex];
+        }
+
+        setInterval(rotateImage, 3000);
 
         showPage(currentPage);
     </script>
