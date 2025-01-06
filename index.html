@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Un mes juntos ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-    <link rel="icon" href="icon.png" type="image/png">
     <style>
+        /* Estilo: Igual al código anterior */
         body {
             font-family: 'Patrick Hand', cursive;
             margin: 0;
@@ -243,9 +243,9 @@
     <div id="gift-screen" class="screen">
         <div class="gift-screen">
             <div class="gift-image-container">
-                <img src="regalo.jpg" alt="Imagen de Regalo">
+                <img src="https://your-image-url.com/your-image.png" alt="Imagen de Regalo">
             </div>
-            <div class="gift-message">❤️ Para mi amor, Loha ❤️</div>
+            <div class="gift-message">Para Loha de Marce ❤️</div>
             <button class="open-button" onclick="openBook()">Abrir</button>
         </div>
     </div>
@@ -253,54 +253,37 @@
     <div id="book-container">
         <div id="book">
             <div class="page" id="page-1">
-                <img src="3.png" alt="Foto 1">
-                <div class="title">❤️ Nuestro primer mes ❤️</div>
-                <p>Mi amor, este mes ha sido uno de los más felices de mi vida. Tu felicidad y tu compañía me hacen muy feliz como no lo hacía desde hace mucho tiempo. Desde la primera vez que te vi, supe que había algo especial en ti. Sentí una conexión increíble, algo que nunca había sentido antes y en ese momento supe que tú serías la mujer con la que quisiera pasar toda mi vida.</p>
+                <img src="https://via.placeholder.com/400x250" alt="Foto 1">
+                <div class="title">Nuestro primer mes</div>
+                <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
             </div>
             <div class="page" id="page-2">
-                <img src="4.png" alt="Foto 2">
-                <div class="title">El dia que supe que eras tú ❤️</div>
-                <p>Fue en nuestra segunda cita, cuando bajábamos de las escaleras para ir a la playa agarrados de la mano fue hermoso, nos sentamos frente al mar y pensaba lo muy afortunado que era al estar al lado de una persona tan increíble, cuando pasamos todo ese tiempo ahí hablando, me di cuenta que podía estar horas de horas al lado tuyo y no me aburriría nunca, cuando te veía, esos hermosos ojos que tienes sentí algo, supe que eras la persona indicada. Fue un día hermoso, nunca lo olvidaré.</p>
+                <img src="https://via.placeholder.com/400x250" alt="Foto 2">
+                <div class="title">Cada día es especial</div>
+                <p>Cada día a tu lado me hace más feliz. 🌟</p>
             </div>
             <div class="page" id="page-3">
-                <img src="https://via.placeholder.com/400x250" alt="Foto 3">
-                <div class="title">Lo que nos espera</div>
-                <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
-            </div>
-            <div class="page" id="page-4">
                 <img id="rotating-image" src="https://via.placeholder.com/400x250" alt="Rotating Foto">
                 <div class="title">Momentos mágicos</div>
                 <p>Cada foto es un recuerdo inolvidable contigo. 💞</p>
             </div>
             <div class="controls">
-                <button id="prev-btn" onclick="prevPage()" disabled>◀</button>
-                <span class="page-indicator" id="page-indicator">1/4</span>
+                <button id="prev-btn" onclick="prevPage()" disabled>◁</button>
+                <span class="page-indicator" id="page-indicator">1/3</span>
                 <button id="next-btn" onclick="nextPage()">▶</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Igual que antes
         function openBook() {
             document.getElementById('gift-screen').classList.add('hidden');
             document.getElementById('book-container').style.display = 'flex';
         }
 
-        function generateRandomHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            const leftPosition = Math.random() * 100;
-            const animationDelay = Math.random() * 5;
-            heart.style.left = `${leftPosition}%`;
-            heart.style.animationDelay = `${animationDelay}s`;
-            document.querySelector('.background').appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }
-
-        setInterval(generateRandomHeart, 500);
-
         let currentPage = 1;
-        const totalPages = 4;
+        const totalPages = 3;
 
         function showPage(page) {
             document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
@@ -325,11 +308,10 @@
         }
 
         const rotatingImages = [
-            "a1.JPG",
-            "a2.JPG",
-            "a3.JPG",
-            "a4.JPG",
-            "a5.jpg"
+            "https://via.placeholder.com/400x250?text=Foto+1",
+            "https://via.placeholder.com/400x250?text=Foto+2",
+            "https://via.placeholder.com/400x250?text=Foto+3",
+            "https://via.placeholder.com/400x250?text=Foto+4"
         ];
         let rotatingIndex = 0;
 
