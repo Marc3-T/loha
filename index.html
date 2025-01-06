@@ -6,7 +6,6 @@
     <title>Un mes juntos ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
-        /* --- Estilos del fondo y corazones --- */
         body {
             font-family: 'Patrick Hand', cursive;
             margin: 0;
@@ -29,7 +28,6 @@
             z-index: -1;
         }
 
-        /* Corazones flotantes */
         .heart {
             position: absolute;
             width: 30px;
@@ -89,11 +87,83 @@
             }
         }
 
-        /* --- Estilos del libro --- */
+        .screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            transition: opacity 0.5s, visibility 0.5s;
+            z-index: 2;
+        }
+
+        .screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .gift-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #fff;
+            border: 5px solid #ff6f61;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .gift-image-container {
+            width: 150px;
+            height: 150px;
+            background: transparent;
+            position: relative;
+            margin-bottom: 20px;
+            animation: shake 1.5s ease-in-out infinite;
+        }
+
+        .gift-image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gift-message {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+
+        .open-button {
+            background: #ff6f61;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .open-button:hover {
+            background: #ff7e74;
+        }
+
         #book-container {
             display: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
             justify-content: center;
             align-items: flex-start;
+            z-index: 1;
             padding-top: 10%;
         }
 
@@ -138,63 +208,96 @@
             align-items: center;
             padding: 15px;
             background: #ff6f61;
+            border-top: 2px solid #ffffff;
         }
 
         .controls button {
             background: #ffffff;
             color: #ff6f61;
             border: none;
-            padding: 10px;
-            font-size: 1.5em;
+            padding: 15px;
+            font-size: 2.5em;
             border-radius: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .controls button:hover {
+            background: #ffe5e0;
         }
 
         .page-indicator {
             font-size: 1.2em;
-            color: white;
-        }
-
-        /* Animación de desvanecimiento */
-        .fade {
-            animation: fade-in-out 1s;
-        }
-
-        @keyframes fade-in-out {
-            0% { opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
+    <div class="background"></div>
+
+    <div id="gift-screen" class="screen">
+        <div class="gift-screen">
+            <div class="gift-image-container">
+                <img src="https://via.placeholder.com/150" alt="Imagen de Regalo">
+            </div>
+            <div class="gift-message">Para Loha de Marce ❤️</div>
+            <button class="open-button" onclick="openBook()">Abrir</button>
+        </div>
+    </div>
+
     <div id="book-container">
         <div id="book">
             <div class="page" id="page-1">
-                <img src="https://via.placeholder.com/400x250" alt="Imagen 1">
-                <div class="title">Nuestro Primer Mes</div>
-                <p>Hace un mes nuestras historias comenzaron...</p>
+                <img src="https://via.placeholder.com/400x250" alt="Foto 1">
+                <div class="title">Nuestro primer mes</div>
+                <p>Hace un mes nuestras historias comenzaron a escribirse juntas. ❤️</p>
             </div>
-            <!-- Agregando la nueva página -->
+            <div class="page" id="page-2">
+                <img src="https://via.placeholder.com/400x250" alt="Foto 2">
+                <div class="title">Cada día es especial</div>
+                <p>Cada día a tu lado me hace más feliz. 🌟</p>
+            </div>
+            <div class="page" id="page-3">
+                <img src="https://via.placeholder.com/400x250" alt="Foto 3">
+                <div class="title">Lo que nos espera</div>
+                <p>Este es solo el inicio de una hermosa historia juntos. Te amo. ❤️</p>
+            </div>
             <div class="page" id="page-4">
-                <img id="random-img" alt="Imagen Aleatoria">
-                <div class="title">¡Sorpresa!</div>
-                <p>Esta página es única cada vez que la ves.</p>
+                <img id="random-image" alt="Imagen aleatoria">
+                <div class="title">Sorpresa</div>
+                <p>¡Cada día contigo es una nueva aventura! ❤️</p>
             </div>
             <div class="controls">
-                <button onclick="prevPage()">←</button>
-                <div class="page-indicator" id="page-indicator">1/4</div>
-                <button onclick="nextPage()">→</button>
+                <button id="prev-btn" onclick="prevPage()" disabled>◁</button>
+                <span class="page-indicator" id="page-indicator">1/4</span>
+                <button id="next-btn" onclick="nextPage()">▶</button>
             </div>
         </div>
     </div>
 
     <script>
-        const pages = document.querySelectorAll('.page');
-        const pageIndicator = document.getElementById('page-indicator');
-        const bookContainer = document.getElementById('book-container');
-        let currentPage = 0;
+        function openBook() {
+            document.getElementById('gift-screen').classList.add('hidden');
+            document.getElementById('book-container').style.display = 'flex';
+        }
 
-        // Lista de imágenes aleatorias para la última página
+        function generateRandomHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            const leftPosition = Math.random() * 100;
+            const animationDelay = Math.random() * 5;
+            heart.style.left = `${leftPosition}%`;
+            heart.style.animationDelay = `${animationDelay}s`;
+            document.querySelector('.background').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(generateRandomHeart, 500);
+
         const randomImages = [
             "a1.jpg",
             "a2.JPG",
@@ -202,41 +305,48 @@
             "a4.JPG",
             "a5.jpg"
         ];
-        let shuffledImages = [...randomImages];
+        let randomOrder = [...randomImages];
+        let randomIndex = 0;
 
-        // Mostrar página actual
-        function showPage(index) {
-            pages.forEach((page, i) => {
-                page.style.display = i === index ? 'block' : 'none';
-            });
-            pageIndicator.textContent = `${index + 1}/${pages.length}`;
-
-            // Mostrar imagen aleatoria en la última página con animación
-            if (index === pages.length - 1) {
-                if (shuffledImages.length === 0) shuffledImages = [...randomImages];
-                const randomImg = shuffledImages.pop();
-                const imgElement = document.getElementById('random-img');
-                imgElement.classList.remove('fade');
-                void imgElement.offsetWidth; // Reinicia la animación
-                imgElement.src = randomImg;
-                imgElement.classList.add('fade');
+        function setRandomImage() {
+            if (randomOrder.length === 0) {
+                randomOrder = [...randomImages];
             }
+            const imgElement = document.getElementById("random-image");
+            imgElement.src = randomOrder.splice(Math.floor(Math.random() * randomOrder.length), 1)[0];
         }
 
-        // Navegación entre páginas
+        let currentPage = 1;
+        const totalPages = 4;
+
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            document.getElementById(`page-${page}`).style.display = 'block';
+
+            if (page === 4) {
+                setRandomImage();
+            }
+
+            document.getElementById('prev-btn').disabled = page === 1;
+            document.getElementById('next-btn').disabled = page === totalPages;
+            document.getElementById('page-indicator').textContent = `${page}/${totalPages}`;
+        }
+
         function nextPage() {
-            if (currentPage < pages.length - 1) {
+            if (currentPage < totalPages) {
                 currentPage++;
                 showPage(currentPage);
             }
         }
 
         function prevPage() {
-            if (currentPage > 0) {
+            if (currentPage > 1) {
                 currentPage--;
                 showPage(currentPage);
             }
         }
+
+        showPage(currentPage);
     </script>
 </body>
 </html>
