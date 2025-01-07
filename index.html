@@ -137,6 +137,37 @@
             object-fit: cover;
         }
 
+        .gift-lid {
+            position: absolute;
+            width: 150px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 10px 10px 0 0;
+            top: -20px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                top: -20px;
+            }
+            50% {
+                top: -30px;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(0);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+
         .gift-message {
             font-size: 1.5em;
             margin-bottom: 20px;
@@ -239,6 +270,7 @@
     </style>
 </head>
 <body>
+    
     <div class="background"></div>
 
     <div id="gift-screen" class="screen">
@@ -282,6 +314,19 @@
             document.getElementById('gift-screen').classList.add('hidden');
             document.getElementById('book-container').style.display = 'flex';
         }
+
+        function generateRandomHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            const leftPosition = Math.random() * 100;
+            const animationDelay = Math.random() * 5;
+            heart.style.left = `${leftPosition}%`;
+            heart.style.animationDelay = `${animationDelay}s`;
+            document.querySelector('.background').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(generateRandomHeart, 500);
 
         let currentPage = 1;
         const totalPages = 3;
