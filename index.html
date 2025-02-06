@@ -369,10 +369,10 @@
                 const now = new Date();
                 const distance = targetDate - now;
         
-                if (distance <= 0) {
-                    clearInterval(interval);
-                    countdownElement.innerHTML = "¡El día ha llegado!";
-                    return;
+                //if (distance <= 0) {
+                  //  clearInterval(interval);
+                    //countdownElement.innerHTML = "¡El día ha llegado!";
+                    //return;
                 }
         
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -388,11 +388,11 @@
                 `;
             }
         
-            updateCountdown(); // Llama una vez para inicializar
+            updateCountdown(); 
             const interval = setInterval(updateCountdown, 1000);
         }
         
-        // Configura la fecha objetivo (6 de febrero de 2025)
+        
         const targetDate = new Date("2025-03-06T00:00:00");
         startCountdown(targetDate);
 
